@@ -4,9 +4,8 @@ const prevButton = document.getElementById('prev');
 const nextButton = document.getElementById('next');
 const background = document.body;
 
-let currentIndex = 1; // Start at the first real image
+let currentIndex = 1; 
 
-// Clone first and last images for circular effect
 const firstClone = images[0].cloneNode(true);
 const lastClone = images[images.length - 1].cloneNode(true);
 
@@ -15,7 +14,6 @@ track.insertBefore(lastClone, images[0]);
 
 const allImages = Array.from(document.querySelectorAll('.carousel img'));
 
-// Define background colors for each image
 const backgroundColors = [
     '#1a1a1a', // Color for alien.jpg
     '#ff5733', // Color for babydriver.webp
@@ -144,7 +142,7 @@ function moveToPrev() {
     if (currentIndex === 0) {
         setTimeout(() => {
             track.style.transition = 'none';
-            currentIndex = allImages.length - 2; // Reset to the last real image
+            currentIndex = allImages.length - 2; 
             updateCarousel();
             updateBackgroundWithGradient();
             updateMovieInfo();
@@ -157,7 +155,6 @@ prevButton.addEventListener('click', moveToPrev);
 
 window.addEventListener('resize', updateCarousel);
 
-// Initialize carousel position
 window.addEventListener('load', () => {
     updateCarousel();
     updateBackgroundWithGradient();
